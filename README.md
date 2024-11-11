@@ -31,3 +31,21 @@ ES6 introduced `let` and `const` for declaring variables, allowing for block sco
 ```javascript
 let variable = 'Changeable';
 const constant = 'Unchangeable';
+
+1. Install Node.js 20.x.x and npm 9.x.x  
+In my home directory, run the following commands to install Node.js:  
+
+bash Copy the code      curl -sL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh  
+                        sudo bash nodesource_setup.sh sudo apt install nodejs -y  
+
+    Then check the installation:   
+    bash Copy the code 
+            nodejs -v # should display version 20.x.x  --> v20.18.0
+            npm -v # should display version 9.x.x  --> 10.8.2
+
+Install Jest, Babel, and ESLint  
+In the project directory, install the necessary dependencies:  
+bash Copy the code   
+        npm install --save-dev jest # For testing  
+        npm install --save-dev babel-jest @babel/core @babel/preset-env # For Babel  
+        npm install --save-dev eslint # For linting  
