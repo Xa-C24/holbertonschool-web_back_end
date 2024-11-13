@@ -4,11 +4,14 @@
   "description": "This repository provides an overview of ES6 classes in JavaScript, including syntax, constructors, inheritance, getters/setters, and static methods. It’s a practical guide for understanding object-oriented programming (OOP) in JavaScript using the modern ES6 class syntax.",
   "main": "0-classroom.js",
   "scripts": {
-    "dev": "node 0-main.js",
+    "dev": "node 2-main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.14.0"
+  }
 }
