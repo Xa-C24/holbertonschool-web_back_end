@@ -1,48 +1,20 @@
-export default class HolbertonCourse {
-  constructor(name, length, students) {
-    if (typeof name !== 'string') {
-      throw new TypeError('Name must be a string');
-    } else if (typeof length !== 'number') {
-      throw new TypeError('Length must be a number');
-    } else if (!Array.isArray(students)) {
-      throw new TypeError('Students must be an array of strings');
+class Building {
+    constructor(sqft) {
+        if (typeof sqft !== 'number') {
+            throw new TypeError('sqft must be a number');
+        }
+        this._sqft = sqft;
+
+        // Vérifie si la méthode `evacuationWarningMessage` est implémentée
+        if (this.evacuationWarningMessage === undefined) {
+            throw new Error('Class extending Building must override evacuationWarningMessage');
+        }
     }
 
-    this._name = name;
-    this._length = length;
-    this._students = students;
-  }
-
-  get name() {
-    return this._name;
-  }
-
-  get length() {
-    return this._length;
-  }
-
-  get students() {
-    return this._students;
-  }
-
-  set name(name) {
-    if (typeof name !== 'string') {
-      throw new TypeError('Name must be a string');
+    // Getter pour `sqft`
+    get sqft() {
+        return this._sqft;
     }
-    this._name = name;
-  }
-
-  set length(length) {
-    if (typeof length !== 'number') {
-      throw new TypeError('Length must be a number');
-    }
-    this._length = length;
-  }
-
-  set students(students) {
-    if (!Array.isArray(students)) {
-      throw new TypeError('Students must be an array of strings');
-    }
-    this._students = students;
-  }
 }
+
+export default Building;
