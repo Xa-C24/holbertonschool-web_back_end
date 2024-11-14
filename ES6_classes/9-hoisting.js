@@ -12,6 +12,11 @@ export class HolbertonClass {
   get location() {
     return this._location;
   }
+
+  // Méthode toString pour HolbertonClass
+  toString() {
+    return `${this._year} - ${this._location}`;
+  }
 }
 
 // Instances de HolbertonClass
@@ -36,6 +41,11 @@ export class StudentHolberton {
 
   get fullStudentDescription() {
     return `${this._firstName} ${this._lastName} - ${this._holbertonClass.year} - ${this._holbertonClass.location}`;
+  }
+
+  // Méthode toString pour StudentHolberton
+  toString() {
+    return this.fullStudentDescription;
   }
 }
 
