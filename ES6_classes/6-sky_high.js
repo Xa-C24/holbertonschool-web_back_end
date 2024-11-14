@@ -3,6 +3,9 @@ import Building from './5-building.js';
 
 class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
+    if (typeof floors !== 'number') {
+      throw new TypeError('floors must be a number');
+    }
     // Appeler le constructeur parent pour définir sqft
     super(sqft);
     // Initialiser l’attribut _floors
