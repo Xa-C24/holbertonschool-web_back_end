@@ -9,17 +9,12 @@ class SkyHighBuilding extends Building {
     this._floors = floors;
   }
 
-  // Getter pour sqft (hérité de la classe parente)
-  get sqft() {
-    return this._sqft;
-  }
-
   // Getter pour floors
   get floors() {
     return this._floors;
   }
 
-  // Redéfinir la méthode evacuationWarningMessage.
+  // Redéfinir la méthode evacuationWarningMessage
   evacuationWarningMessage() {
     return `Evacuate slowly the ${this._floors} floors`;
   }
