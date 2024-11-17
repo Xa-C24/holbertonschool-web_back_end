@@ -1,4 +1,4 @@
-echo "node_modules/" >> .gitignore
+node_modules/
 *main*
 node_modules/
 eslint.config/
