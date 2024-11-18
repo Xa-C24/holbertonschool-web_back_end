@@ -26,6 +26,7 @@ Destructuring allows you to extract values from arrays or properties from object
 
     // Object destructuring
     const { name, age } = { name: 'John', age: 30 };
+
 ## **Spread Operator**  
 
 The spread operator (...) allows an iterable to be expanded in places where zero or more arguments or elements are expected.  
