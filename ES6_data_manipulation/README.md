@@ -21,11 +21,13 @@ ES6, also known as ECMAScript 2015, introduced several powerful features for dat
 Destructuring allows you to extract values from arrays or properties from objects into distinct variables.
 
 ```javascript
-    // Array destructuring
-    const [a, b] = [1, 2];
+// Array destructuring
+const [a, b] = [1, 2];
 
-    // Object destructuring
-    const { name, age } = { name: 'John', age: 30 };
+// Object destructuring
+const { name, age } = { name: 'John', age: 30 };
+
+
 
 ## **Spread Operator**  
 
