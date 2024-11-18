@@ -4,7 +4,8 @@
   "description": "## **Introduction** ES6, also known as ECMAScript 2015, introduced several powerful features for data manipulation in JavaScript. This README provides an overview of key ES6 features that enhance data handling and manipulation capabilities.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "./node_modules/.bin/babel-node"
   },
   "keywords": [],
   "author": "",
