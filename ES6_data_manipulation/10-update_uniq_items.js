@@ -8,4 +8,5 @@ export default function updateUniqueItems(items) {
       items.set(key, 100);
     }
   })
+  return updatedItems;
 }
