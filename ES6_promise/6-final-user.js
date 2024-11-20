@@ -8,4 +8,3 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     [signUpUser(firstName, lastName), uploadPhoto(fileName)]
   )
 }
-// return pending = en cours d'execution en attente
