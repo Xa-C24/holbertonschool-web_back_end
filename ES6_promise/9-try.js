@@ -7,7 +7,7 @@ export default function guardrail(mathFunction) {
       queue.push(result);
       // Si une erreur est levée, ajouter le message de l'erreur au tableau
   } catch (error) {
-    queue.push(error.message);
+    queue.push(`Error: ${error.message}`);
   }
 
   queue.push('Guardrail was processed');
