@@ -148,6 +148,6 @@ mypy: A static type checker for Python that validates type hints.
 🌟 Contribute or Explore More!
 Feel free to dive deeper into the Python Typing documentation or suggest improvements to this repository. 🚀
 
-Author: Xavier
+## Author: Xavier
 Project Repository: Python Variable Annotations
 Happy Coding! 😊
