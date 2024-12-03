@@ -149,5 +149,7 @@ mypy: A static type checker for Python that validates type hints.
 Feel free to dive deeper into the Python Typing documentation or suggest improvements to this repository. 🚀
 
 ## Author: Xavier
-Project Repository: Python Variable Annotations
-Happy Coding! 😊
+
+**Project Repository**: [Python Variable Annotations](https://github.com/Xa-C24/holbertonschool-web_back_end)
+
+**Happy Coding!** 😊
