@@ -1,40 +1,53 @@
-Python Variable Annotations
-🏆 Project Badge
-Python - Variable Annotations
-Master
-By: Emmanuel Turlay, Staff Software Engineer at Cruise
-Weight: 1
-Your score will be updated as you progress.
+# Python Variable Annotations
 
-📖 Description
-This project is about type annotations in Python, a powerful feature that improves code clarity, helps prevent bugs, and assists in catching type-related issues during development. You will learn to define type annotations for functions, variables, and complex types, and validate them using tools like mypy.
+## 🏆 Project Badge
+**Python - Variable Annotations**  
+**Master**  
+**By**: Emmanuel Turlay, Staff Software Engineer at Cruise  
+**Weight**: 1  
+**Your score will be updated as you progress.**
 
-📚 Resources
+---
+
+## 📖 Description
+This project is about **type annotations** in Python, a powerful feature that improves code clarity, helps prevent bugs, and assists in catching type-related issues during development. You will learn to define type annotations for functions, variables, and complex types, and validate them using tools like `mypy`.
+
+---
+
+## 📚 Resources
 Make sure to check out these resources for better understanding:
+- [Python 3 Typing Documentation](https://docs.python.org/3/library/typing.html)  
+- [MyPy Cheat Sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 
-Python 3 Typing Documentation
-MyPy Cheat Sheet
-🎯 Learning Objectives
+---
+
+## 🎯 Learning Objectives
 By the end of this project, you will be able to:
+- Understand **type annotations** in Python 3.
+- Use type annotations to specify function signatures and variable types.
+- Understand and apply **Duck Typing** in Python.
+- Validate your code using **mypy**.
 
-Understand type annotations in Python 3.
-Use type annotations to specify function signatures and variable types.
-Understand and apply Duck Typing in Python.
-Validate your code using mypy.
-🛠 Requirements
-Allowed editors: vi, vim, emacs.
-Environment: Ubuntu 20.04 LTS using Python 3.9.
-Style: Your code must follow pycodestyle (version 2.5).
-Each file must be executable and end with a new line.
-Documentation: All modules, classes, and functions must have proper documentation.
-📝 Tasks
-0. Basic Annotations - Add
-Objective: Write a type-annotated function add that takes two floats as arguments and returns their sum as a float.
+---
 
-Example:
+## 🛠 Requirements
+- **Allowed editors**: `vi`, `vim`, `emacs`.  
+- **Environment**: Ubuntu 20.04 LTS using Python 3.9.  
+- **Style**: Your code must follow `pycodestyle` (version 2.5).  
+- Each file must be executable and end with a new line.  
+- **Documentation**: All modules, classes, and functions must have proper documentation.
 
+---
+
+## 📝 Tasks
+
+### 0. Basic Annotations - Add
+Write a type-annotated function `add` that takes two floats as arguments and returns their sum as a float.  
+**Example**:
+```python
 def add(a: float, b: float) -> float:
     return a + b
+
 1. Basic Annotations - Concat
 Objective: Write a type-annotated function concat that concatenates two strings.
 
