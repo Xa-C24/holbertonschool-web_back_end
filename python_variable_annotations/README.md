@@ -1,4 +1,4 @@
-# Python Variable Annotations
+# Python Variable Annotations🎄
 
 ## 🏆 Project Badge
 **Python - Variable Annotations**  
