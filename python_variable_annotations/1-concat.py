@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Concat two string and returns result ."""
+"""A script containing a function to concatenate two strings."""
 
 
 def concat(str1: str, str2: str) -> str:
