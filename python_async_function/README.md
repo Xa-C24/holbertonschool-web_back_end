@@ -60,7 +60,7 @@ Executes blocking code in a separate thread or process.
         loop = asyncio.get_event_loop()  
         await loop.run_in_executor(None, blocking_operation)  
 
-7. asyncio.Queue  
+### 7. asyncio.Queue  
 Asynchronous FIFO queue for inter-task communication.  
 
     queue = asyncio.Queue()
@@ -102,3 +102,13 @@ Synchronizes tasks.
 
     async def setter():
         event.set()  
+
+### 11. asyncio.Condition  
+Manages shared resources with conditions.  
+
+    condition = asyncio.Condition()
+
+    async def writer():
+        async with condition:
+            print("Resource updated")
+            condition.notify_all()
