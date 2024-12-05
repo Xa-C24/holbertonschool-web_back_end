@@ -23,25 +23,24 @@ This guide explores **asyncio**, the main module for asynchronous programming in
 ### 1. `asyncio.run`  
 The main entry point for running asynchronous code.
 
-
-async def example():
-    print("Asyncio Run Example")
+    async def example():
+      print("Asyncio Run Example")
 
 asyncio.run(example())
 
 ### 2. `asyncio.sleep`  
   Suspends execution for a given amount of time.
 
-await asyncio.sleep(2)  # Pause for 2 seconds
+    await asyncio.sleep(2)  # Pause for 2 seconds
 
 ### 3. `asyncio.create_task`  
 Schedules a coroutine to run as a concurrent task.
 
-task = asyncio.create_task(coroutine())
+    task = asyncio.create_task(coroutine())
 
 ### 4. `asyncio.gather`  
 Executes multiple coroutines concurrently.
 
 
-async def main():
-await asyncio.gather(task1(), task2())
+    async def main():
+    await asyncio.gather(task1(), task2())
