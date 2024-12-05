@@ -44,4 +44,62 @@ Executes multiple coroutines concurrently.
 
     async def main():  
     await asyncio.gather(task1(), task2())  
-    
+
+### 5. asyncio.wait  
+Waits for a set of tasks to complete.  
+
+    done, pending = await asyncio.wait([task1, task2])  
+
+### 6. asyncio.run_in_executor  
+Executes blocking code in a separate thread or process.  
+
+    def blocking_operation():
+        print("Blocking operation")
+
+    async def main():  
+        loop = asyncio.get_event_loop()  
+        await loop.run_in_executor(None, blocking_operation)  
+
+7. asyncio.Queue  
+Asynchronous FIFO queue for inter-task communication.  
+
+    queue = asyncio.Queue()
+
+    async def producer():
+        await queue.put("Produced item")
+
+    async def consumer():
+        item = await queue.get()
+        print(item)
+
+### 8. asyncio.TimeoutError  
+Handles execution timeouts.  
+
+    async def main():
+        try:
+            await asyncio.wait_for(asyncio.sleep(5), timeout=3)
+        except asyncio.TimeoutError:
+            print("Operation timed out")
+
+    asyncio.run(main())
+
+### 9. asyncio.Semaphore  
+Limits the number of concurrent tasks.  
+
+    semaphore = asyncio.Semaphore(2)
+
+    async def limited_task():
+        async with semaphore:
+            await asyncio.sleep(1)  
+
+### 10. asyncio.Event  
+Synchronizes tasks.  
+
+    event = asyncio.Event()
+
+    async def waiter():
+        await event.wait()
+
+    async def setter():
+        event.set()  
+        
