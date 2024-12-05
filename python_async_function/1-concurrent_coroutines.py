@@ -1,20 +1,28 @@
 #!/usr/bin/env python3
-"""previous python file that you’ve written and write an async routine called wait_n"""
+"""Async routine called wait_n"""
 
 import asyncio
 from typing import List
 from basic_async_syntax import wait_random
 
 
-async def wait_n(n: int, max_delay: int) -> list[float]:
+async def wait_n(n: int, max_delay: int) -> List[float]:
     """
     Spawns wait_random n times with a specified max_delay
     and returns the list of delays in ascending order.
     """
-    delays = []
     tasks = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
+    delays = []
+
+    # Insère chaque délai dans une liste triée au fur et à mesure
     for task in asyncio.as_completed(tasks):
         delay = await task
-        delays.append(delay)
+        # Insère le délai dans la liste triée
+        for i, d in enumerate(delays):
+            if delay < d:
+                delays.insert(i, delay)
+                break
+        else:
+            delays.append(delay)
 
-    return sorted(delays)
+    return delays
