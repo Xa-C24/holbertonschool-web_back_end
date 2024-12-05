@@ -70,7 +70,7 @@ Asynchronous FIFO queue for inter-task communication.
 
     async def consumer():
         item = await queue.get()
-        print(item)
+        print(item)  
 
 ### 8. asyncio.TimeoutError  
 Handles execution timeouts.  
@@ -102,4 +102,3 @@ Synchronizes tasks.
 
     async def setter():
         event.set()  
-        
