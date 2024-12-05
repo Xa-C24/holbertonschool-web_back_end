@@ -16,7 +16,6 @@ This guide explores **asyncio**, the main module for asynchronous programming in
 - Can pause and resume execution using `await`.
 
 ## Example:
-```python
 async def say_hello():
     print("Hello, Async!")
 
@@ -25,7 +24,7 @@ async def say_hello():
 ### 1. `asyncio.run`
 The main entry point for running asynchronous code.
 
-```python
+
 async def example():
     print("Asyncio Run Example")
 
