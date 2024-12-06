@@ -1,4 +1,4 @@
-#!/bin/usr/env python3
+#!/usr/bin/env python3
 """Return an asyncio.Task from wait_random"""
 
 import asyncio
