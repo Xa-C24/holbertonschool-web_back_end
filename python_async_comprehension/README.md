@@ -89,3 +89,17 @@ Suppose you want to fetch multiple web pages at the same time. Here’s an examp
             print(f"Content from {url}: {len(page)} bytes 📝")
 
     asyncio.run(main())  
+
+Benefits:  
+Concurrent data retrieval. 🌐
+Significant time savings for I/O tasks.  
+
+Coroutines vs Multi-threading 🧵
+Coroutines 👍
+Lightweight: Minimal memory usage. 💾
+Predictable: No preemption or race conditions. 🛡️
+Ideal for I/O-bound tasks. 🌍
+Threads 👎
+True parallelism for CPU-bound tasks. ⚙️
+Higher memory overhead: Each thread consumes more resources. 💥
+Issues like deadlocks and race conditions. 🧨  
