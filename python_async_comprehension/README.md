@@ -16,3 +16,15 @@ Defined with `async`:
     async def my_coroutine():
         await asyncio.sleep(1)
         print("Coroutine executed!")  
+
+### 2️⃣ Event Loop
+The event loop is the core of any asyncio application. It:
+
+Schedules tasks. 📅
+Manages I/O operations. 💾
+Executes callbacks. 🔄  
+
+3️⃣ async and await
+async: Used to define a coroutine.
+await: Used inside a coroutine to call another coroutine and wait for its result. It allows control to be handed back to the event loop. ⏳  
+
