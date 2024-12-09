@@ -65,7 +65,27 @@ To execute multiple coroutines simultaneously, use asyncio.gather:
     async def main():  
     await asyncio.gather(say_hello(), say_world())  
 
-Result:  
-Total time: ~1 second. 🚀  
-Coroutines run in parallel. 🎭  
+    Result:  
+    Total time: ~1 second. 🚀  
+    Coroutines run in parallel. 🎭  
 
+
+    Real-World Example 🌐  
+    Suppose you want to fetch multiple web pages at the same time. Here’s an example using aiohttp:  
+
+        import aiohttp
+    import asyncio
+
+    async def fetch_url(url):
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as response:
+                return await response.text()
+
+    async def main():
+        urls = ["https://example.com", "https://example.org", "https://example.net"]
+        tasks = [fetch_url(url) for url in urls]
+        pages = await asyncio.gather(*tasks)
+        for url, page in zip(urls, pages):
+            print(f"Content from {url}: {len(page)} bytes 📝")
+
+    asyncio.run(main())  
