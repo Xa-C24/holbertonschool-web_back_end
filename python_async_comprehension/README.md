@@ -70,11 +70,11 @@ To execute multiple coroutines simultaneously, use asyncio.gather:
     Coroutines run in parallel. 🎭  
 
 
-    Real-World Example 🌐  
-    Suppose you want to fetch multiple web pages at the same time. Here’s an example using aiohttp:  
+Real-World Example 🌐  
+Suppose you want to fetch multiple web pages at the same time. Here’s an example using aiohttp:  
 
         import aiohttp
-    import asyncio
+        import asyncio
 
     async def fetch_url(url):
         async with aiohttp.ClientSession() as session:
