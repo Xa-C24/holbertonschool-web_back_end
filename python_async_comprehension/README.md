@@ -6,32 +6,34 @@ Asynchronous execution in Python allows you to write **concurrent** code without
 
 ---
 
-## Basic Concepts 📚
+## Basic Concepts 📚  
 
 ### 1️⃣ Coroutine
 A coroutine is a special type of function that can **pause** its execution to allow other tasks to run. It can later resume where it left off. 🛑➡️▶️
 
 Defined with `async`:
-```python
+
 async def my_coroutine():
     await asyncio.sleep(1)
-    print("Coroutine executed!")
-2️⃣ Event Loop
+    print("Coroutine executed!")  
+
+
+### 2️⃣ Event Loop
 The event loop is the core of any asyncio application. It:
 
 Schedules tasks. 📅
 Manages I/O operations. 💾
-Executes callbacks. 🔄
-3️⃣ async and await
+Executes callbacks. 🔄  
+
+
+### 3️⃣ async and await
 async: Used to define a coroutine.
 await: Used inside a coroutine to call another coroutine and wait for its result. It allows control to be handed back to the event loop. ⏳
 Example:
 
-python
-Copier le code
-async def say_hello():
-    await asyncio.sleep(1)
-    print("Hello! 👋")
+    async def say_hello():
+        await asyncio.sleep(1)
+        print("Hello! 👋")  
 
 Basic Example
 A simple asynchronous program with coroutines:  
