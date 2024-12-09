@@ -96,14 +96,14 @@ Significant time savings for I/O tasks.
 
 Coroutines vs Multi-threading 🧵  
 Coroutines 👍  
-Lightweight: Minimal memory usage. 💾  
-Predictable: No preemption or race conditions. 🛡️  
-Ideal for I/O-bound tasks. 🌍  
-Threads 👎  
-True parallelism for CPU-bound tasks. ⚙️  
-Higher memory overhead: Each thread consumes more resources. 💥  
-Issues like deadlocks and race conditions. 🧨  
+- Lightweight: Minimal memory usage. 💾  
+- Predictable: No preemption or race conditions. 🛡️  
+- Ideal for I/O-bound tasks. 🌍  
+- Threads 👎  
+- True parallelism for CPU-bound tasks. ⚙️  
+- Higher memory overhead: Each thread consumes more resources. 💥  
+- Issues like deadlocks and race conditions. 🧨  
 
 Additional Resources 📖  
-Official asyncio documentation  
-aiohttp tutorial  
+- Official asyncio documentation  
+- aiohttp tutorial  
