@@ -4,8 +4,9 @@ import csv
 import math
 from typing import List, Dict
 
+
 def index_range(page: int, page_size: int) -> tuple:
-        """
+    """
         Calculate the start and end index for pagination.
 
         Args:
@@ -15,9 +16,10 @@ def index_range(page: int, page_size: int) -> tuple:
         Returns:
             tuple: A tuple containing the start index and the end index.
         """
-        start = (page - 1) * page_size
-        end = page * page_size
-        return (start, end)
+    start = (page - 1) * page_size
+    end = page * page_size
+    return (start, end)
+
 
 class Server:
     """Server class to paginate a database of popular baby names."""
@@ -61,7 +63,6 @@ class Server:
 
         return dataset[start:end]
 
-
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """
         Provides a hypermedia pagination response.
@@ -79,6 +80,10 @@ class Server:
         total_items = len(self.dataset())
         # Calculate total pages
         total_pages = math.ceil(total_items / page_size)
+
+        # Determine the next and previous pages
+        next_page = page + 1 if page < total_pages else None
+        prev_page = page - 1 if page > 1 else None
 
         return {
             "page_size": len(data),
