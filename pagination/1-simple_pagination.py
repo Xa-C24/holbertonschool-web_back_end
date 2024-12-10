@@ -35,10 +35,11 @@ class Server:
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
                 reader = csv.reader(f)
-                self.__dataset = [row for row in reader][1:]  # Skip the header row
+                # Skip the header row
+                self.__dataset = [row for row in reader][1:]
         return self.__dataset
 
-    def get_page(self, page: int, page_size: int = 10) -> List[list]:
+    def get_page(self, page: int = 1, page_size: int = 10) -> List[list]:
         """
         Retrieves a page of data from the dataset.
 
@@ -49,8 +50,10 @@ class Server:
         Returns:
             List[List]: A list of rows corresponding to the requested page.
         """
-        assert isinstance(page, int) and page > 0, "Page must be a positive integer"
-        assert isinstance(page_size, int) and page_size > 0, "Page size must be a positive integer"
+        assert isinstance(
+            page, int) and page > 0, "Page must be a positive integer"
+        assert isinstance(
+            page_size, int) and page_size > 0, "Page size must be a positive integer"
 
         # Calculate the start and end indices for the requested page
         start, end = index_range(page, page_size)
