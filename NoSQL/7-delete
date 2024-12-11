@@ -1,4 +1,2 @@
 // script that deletes all documents with name="Holberton school"
-db.shool.delete.Many(
-  {name: "Holberton school" }
-)
+db.shool.delete.Many({name: "Holberton school" })
