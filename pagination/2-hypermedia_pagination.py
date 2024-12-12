@@ -2,20 +2,19 @@
 
 import csv
 import math
-from typing import List, Dict
+from typing import List, Dict, Tuple
 
-
-def index_range(page: int, page_size: int) -> tuple:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
-        Calculate the start and end index for pagination.
+    Calculate the start and end index for pagination.
 
-        Args:
-            page (int): The current page number (1-indexed).
-            page_size (int): The number of items per page.
+    Args:
+        page (int): The current page number (1-indexed).
+        page_size (int): The number of items per page.
 
-        Returns:
-            tuple: A tuple containing the start index and the end index.
-        """
+    Returns:
+        tuple: A tuple containing the start index and the end index.
+    """
     start = (page - 1) * page_size
     end = page * page_size
     return (start, end)
@@ -33,10 +32,13 @@ class Server:
     def dataset(self) -> List[List]:
         """Loads the dataset from the CSV file."""
         if self.__dataset is None:
-            with open(self.DATA_FILE) as f:
-                reader = csv.reader(f)
-                # Ignore the header row
-                self.__dataset = [row for row in reader][1:]
+            try:
+                with open(self.DATA_FILE) as f:
+                    reader = csv.reader(f)
+                    # Ignore the header row
+                    self.__dataset = [row for row in reader][1:]
+            except FileNotFoundError:
+                self.__dataset = []
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
@@ -50,10 +52,8 @@ class Server:
         Returns:
             List[List]: A list of rows corresponding to the requested page.
         """
-        assert isinstance(
-            page, int) and page > 0, "Page must be a positive integer"
-        assert isinstance(
-            page_size, int) and page_size > 0, "Page size must be a positive integer"
+        assert isinstance(page, int) and page > 0, "Page must be a positive integer"
+        assert isinstance(page_size, int) and page_size > 0, "Page size must be a positive integer"
 
         start, end = index_range(page, page_size)
         dataset = self.dataset()
@@ -89,7 +89,20 @@ class Server:
             "page_size": len(data),
             "page": page,
             "data": data,
-            "next_page": page + 1 if page < total_pages else None,
-            "prev_page": page - 1 if page > 1 else None,
+            "next_page": next_page,
+            "prev_page": prev_page,
             "total_pages": total_pages,
         }
+
+# Example usage for testing
+if __name__ == "__main__":
+    server = Server()
+
+    # Test cases
+    print(server.get_hyper(1, 2))
+    print("---")
+    print(server.get_hyper(2, 2))
+    print("---")
+    print(server.get_hyper(100, 3))
+    print("---")
+    print(server.get_hyper(3000, 100))
