@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Measures the total runtime of executing async_comprehension four times in parallel """
+""" module for runtime of executing async_comprehension four times in parallel """
 
 import asyncio  # Gérer les coroutines.
 import time     # Mesurer le temps d'exécution.
