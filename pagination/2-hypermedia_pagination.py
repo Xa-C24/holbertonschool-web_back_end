@@ -4,6 +4,7 @@ import csv
 import math
 from typing import List, Dict, Tuple
 
+
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Calculate the start and end index for pagination.
@@ -52,8 +53,12 @@ class Server:
         Returns:
             List[List]: A list of rows corresponding to the requested page.
         """
-        assert isinstance(page, int) and page > 0, "Page must be a positive integer"
-        assert isinstance(page_size, int) and page_size > 0, "Page size must be a positive integer"
+        assert isinstance(page, int) and page > 0, (
+            "Page must be a positive integer"
+        )
+        assert isinstance(page_size, int) and page_size > 0, (
+            "Page size must be a positive integer"
+        )
 
         start, end = index_range(page, page_size)
         dataset = self.dataset()
@@ -72,7 +77,8 @@ class Server:
             page_size (int): The number of items per page.
 
         Returns:
-            Dict: A dictionary containing pagination metadata and the page data.
+            Dict: A dictionary containing pagination metadata
+            and the page data.
         """
         # Get the data for the current page
         data = self.get_page(page, page_size)
@@ -93,6 +99,7 @@ class Server:
             "prev_page": prev_page,
             "total_pages": total_pages,
         }
+
 
 # Example usage for testing
 if __name__ == "__main__":
