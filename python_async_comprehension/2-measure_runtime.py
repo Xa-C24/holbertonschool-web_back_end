@@ -3,6 +3,7 @@
 
 import asyncio  # Gérer les coroutines.
 import time     # Mesurer le temps d'exécution.
+
 async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 
