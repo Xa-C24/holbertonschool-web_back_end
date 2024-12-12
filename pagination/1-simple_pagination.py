@@ -33,10 +33,13 @@ class Server:
     def dataset(self) -> List[list]:
         """Loads the dataset from the CSV file."""
         if self.__dataset is None:
-            with open(self.DATA_FILE) as f:
-                reader = csv.reader(f)
-                # Skip the header row
-                self.__dataset = [row for row in reader][1:]
+          try:
+              with open(self.DATA_FILE) as f:
+                  reader = csv.reader(f)
+                  # Skip the header row
+                  self.__dataset = [row for row in reader][1:]
+          except FileNotFoundError:
+              self.__dataset = []
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[list]:
