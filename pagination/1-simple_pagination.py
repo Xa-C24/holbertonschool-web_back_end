@@ -2,10 +2,9 @@
 """Module for pagination."""
 
 import csv
-from typing import List
+from typing import List, Tuple
 
-
-def index_range(page: int, page_size: int) -> tuple:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Calculate the start and end indices for a page of data.
 
@@ -30,19 +29,19 @@ class Server:
         """Initializes the server instance."""
         self.__dataset = None
 
-    def dataset(self) -> List[list]:
+    def dataset(self) -> List[List]:
         """Loads the dataset from the CSV file."""
         if self.__dataset is None:
-          try:
-              with open(self.DATA_FILE) as f:
-                  reader = csv.reader(f)
-                  # Skip the header row
-                  self.__dataset = [row for row in reader][1:]
-          except FileNotFoundError:
-              self.__dataset = []
+            try:
+                with open(self.DATA_FILE) as f:
+                    reader = csv.reader(f)
+                    # Skip the header row
+                    self.__dataset = [row for row in reader][1:]
+            except FileNotFoundError:
+                self.__dataset = []
         return self.__dataset
 
-    def get_page(self, page: int = 1, page_size: int = 10) -> List[list]:
+    def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
         Retrieves a page of data from the dataset.
 
@@ -53,10 +52,9 @@ class Server:
         Returns:
             List[List]: A list of rows corresponding to the requested page.
         """
-        assert isinstance(
-            page, int) and page > 0, "Page must be a positive integer"
-        assert isinstance(
-            page_size, int) and page_size > 0, "Page size must be a positive integer"
+        # Validate arguments
+        assert isinstance(page, int) and page > 0, "Page must be a positive integer"
+        assert isinstance(page_size, int) and page_size > 0, "Page size must be a positive integer"
 
         # Calculate the start and end indices for the requested page
         start, end = index_range(page, page_size)
@@ -70,3 +68,15 @@ class Server:
 
         # Return the slice of the dataset corresponding to the requested page
         return dataset[start:end]
+
+# Example usage for testing
+if __name__ == "__main__":
+    server = Server()
+
+    # Test cases
+    try:
+        print(server.get_page(1, 3))  # First page, 3 items per page
+        print(server.get_page(3, 2))  # Third page, 2 items per page
+        print(server.get_page(3000, 100))  # Out-of-range page
+    except AssertionError as e:
+        print(f"AssertionError: {e}")
