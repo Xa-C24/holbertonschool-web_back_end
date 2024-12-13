@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
-"""
-Python script that provides some stats
-about Nginx logs stored in MongoDB.
-"""
+"""Script that provides some stats about Nginx logs stored in MongoDB."""
 
-import subprocess
-import json
+from pymongo import MongoClient
 
 def log_stats():
     """
@@ -13,28 +9,20 @@ def log_stats():
     dans la base de données MongoDB en utilisant la CLI.
     """
     # Nombre total de logs
-    total_logs = subprocess.check_output(
-        ['mongo', 'logs', '--quiet', '--eval',
-         'db.nginx.countDocuments({})']
-    ).strip().decode('utf-8')
-    print(f"{total_logs} logs")
+    log_count = collection.count_documents({})
+    print(f"{log_count} logs")
 
     # Statistiques des méthodes
-    print("Methods:")
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
+    print("Methods:")
     for method in methods:
-        count = subprocess.check_output(
-            ['mongo', 'logs', '--quiet', '--eval',
-             f'db.nginx.countDocuments({{"method": "{method}"}})']
-        ).strip().decode('utf-8')
+        count = collection.count_documents({"method": method})
         print(f"\tmethod {method}: {count}")
 
     # Nombre de requêtes GET avec path /status
-    status_check = subprocess.check_output(
-        ['mongo', 'logs', '--quiet', '--eval',
-         'db.nginx.countDocuments({"method": "GET", "path": "/status"})']
-    ).strip().decode('utf-8')
-    print(f"{status_check} status check")
+    # Status check (method=GET and path=/status)
+    status_check_count = collection.count_documents({"method": "GET", "path": "/status"})
+    print(f"{status_check_count} status check")
 
 if __name__ == "__main__":
     log_stats()
