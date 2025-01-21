@@ -18,7 +18,7 @@ function countStudents(path) {
         // Enlever la première ligne (en-têtes)
         const students = lines.slice(1);
 
-        // Initialiser un objet pour organiser les étudiants par domaine
+        // Initialiser un objet pour organiser les étudiants par domaine.
         const fields = {};
 
         // Parcourir chaque lignes des étudiants
