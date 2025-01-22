@@ -5,7 +5,6 @@ process.stdout.write("Welcome to Holberton School, what is your name?\n");
 process.stdin.on("readable", () => {
   const input = process.stdin.read();
   if (input !== null) {
-    // Convertir l'entrée en chaîne de caractères et supprimer les espaces inutiles
     const name = input.toString().trim();
     process.stdout.write(`Your name is: ${name}\n`);
   }
