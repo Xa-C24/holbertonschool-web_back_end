@@ -6,7 +6,7 @@ const app = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain'});
 
     // Envoyer la réponse
-    res.end('Hello Holberton School');
+    res.end('Hello Holberton School!');
 });
 
 // Faire écouter le serveur sur le port 1245
