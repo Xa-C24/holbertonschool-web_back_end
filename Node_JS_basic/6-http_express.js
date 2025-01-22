@@ -1,7 +1,7 @@
 // Importation de Express
 const express = require("express");
 
-// Création de l'application Express
+// Création de l'application Express.
 const app = express();
 
 // Route pour l'endpoint /
