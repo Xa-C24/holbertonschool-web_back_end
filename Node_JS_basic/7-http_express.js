@@ -42,7 +42,6 @@ async function countStudents(path) {
     }
 
     return result.trim(); // Retourne le résultat sans espaces inutiles
-
   } catch (error) {
     // Gestion des erreurs si le fichier ne peut pas être lu
     throw new Error('Cannot load the database');
@@ -72,7 +71,8 @@ app.get('/students', async (req, res) => {
     // Lecture et traitement des données du fichier CSV
     const studentsData = await countStudents(database);
     res.end(studentsData); // Envoi des données au client et fin de la réponse
-  } catch {
+  } catch (error) {
+    console.error(error); // Affiche l'erreur dans la console
     res.end('Cannot load the database');
   }
 });
