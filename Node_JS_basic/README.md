@@ -124,3 +124,120 @@ readFile();
 - [Node.js Guide on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Node.js)
 - [NPM (Node Package Manager)](https://www.npmjs.com/)
 
+
+Express.js - Résumé
+
+Express est un framework web minimaliste pour Node.js qui simplifie la création d'applications web et d'API. Il offre un ensemble riche de fonctionnalités pour gérer des requêtes HTTP, définir des routes, et ajouter des middlewares pour traiter les données entrantes et sortantes.
+
+Pourquoi utiliser Express ?
+
+Simplifie le développement :
+
+Réduit le code nécessaire pour créer un serveur HTTP avec Node.js.
+
+Support des middlewares :
+
+Permet d'ajouter des fonctions intermédiaires pour traiter les requêtes avant d'y répondre.
+
+Gestion facile des routes :
+
+Offre une syntaxe claire pour gérer les différents endpoints (GET, POST, etc.).
+
+Flexibilité et extensibilité :
+
+Supporte de nombreuses bibliothèques pour étendre ses fonctionnalités (par exemple : authentification, traitement des fichiers).
+
+Large écosystème :
+
+Un des frameworks les plus populaires dans la communauté Node.js avec une large documentation et support.
+
+Fonctionnalités principales
+
+1. Gestion des routes :
+
+Permet de définir des endpoints pour chaque méthode HTTP (ég. GET, POST).
+
+const express = require('express');
+const app = express();
+
+// Route GET
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+// Route POST
+app.post('/submit', (req, res) => {
+  res.send('Form submitted!');
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
+
+2. Middlewares :
+
+Les middlewares sont des fonctions intermédiaires utilisées pour traiter les requêtes avant qu'elles n'atteignent la route.
+
+app.use((req, res, next) => {
+  console.log(`Request received: ${req.method} ${req.url}`);
+  next(); // Passe au middleware ou à la route suivante
+});
+
+3. Support des fichiers statiques :
+
+Permet de servir des fichiers CSS, images ou JavaScript.
+
+app.use(express.static('public'));
+
+4. Paramètres de route :
+
+Capture des parties dynamiques de l'URL.
+
+app.get('/user/:id', (req, res) => {
+  res.send(`User ID: ${req.params.id}`);
+});
+
+5. Gestion des erreurs :
+
+Permet d'ajouter un middleware spécial pour gérer les erreurs.
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+Quand utiliser Express ?
+
+Création d'API RESTful.
+
+Développement de petites applications web ou prototypes.
+
+Gestion des requêtes HTTP dans des projets backend.
+
+Exemple de projet simple avec Express
+
+Voici un exemple de serveur HTTP utilisant Express :
+
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+// Route de base
+app.get('/', (req, res) => {
+  res.send('Welcome to my Express app!');
+});
+
+// Lancer le serveur
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+Installation
+
+Pour installer Express dans votre projet, utilisez la commande suivante :
+
+npm install express
+
+Conclusion
+
+Express est un outil puissant et facile à utiliser pour développer des applications backend avec Node.js. Il permet de se concentrer sur la logique métier sans gérer les détails complexes des requêtes HTTP. Avec son écosystème riche et sa communauté active, c'est un choix idéal pour tout projet backend.
