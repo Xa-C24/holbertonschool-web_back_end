@@ -1,1 +1,23 @@
 node_modules/
+# Ignorer les dossiers node_modules
+node_modules/
+
+# Ignorer les fichiers lock liés à npm ou yarn
+package-lock.json
+yarn.lock
+
+# Ignorer les fichiers spécifiques aux systèmes
+.DS_Store
+Thumbs.db
+
+# Ignorer les fichiers générés par ESLint
+.eslintcache
+
+# Ignorer tout fichier temporaire ou sauvegarde
+*.tmp
+*.bak
+*.swp
+*.log
+
+# Ignorer tout fichier ou dossier caché (optionnel)
+.*
